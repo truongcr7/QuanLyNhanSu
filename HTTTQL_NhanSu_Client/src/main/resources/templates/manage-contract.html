@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<title>Quản lý hợp đồng</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+	integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="/css/manage-contract.css">
+</head>
+
+<body>
+	<div th:replace="navbar :: contract"></div>
+	<br>
+	<div class="wrap" id="contract-wrap">
+		<form action="/manage-contract/add" method="post">
+			<h3>Thêm nhân viên:</h3>
+			<div class="contract_staff">
+				<div class="contract__select-input">
+					<h4>Họ tên:</h4>
+					<input type="text" name="hoTen" class="form-control">
+				</div>
+				<div class="contract__select-input">
+					<h4>Ngày sinh:</h4>
+					<input type="date" name="ngaySinh" class="form-control">
+				</div>
+			</div>
+			<div class="contract_staff">
+				<div class="contract__select-input">
+					<h4>Giới tính:</h4>
+					<select name="gioiTinh" id="" class="form-control">
+						<option value="nam">Nam</option>
+						<option value="nu">Nữ</option>
+					</select>
+				</div>
+				<div class="contract__select-input">
+					<h4>Địa chỉ:</h4>
+					<input type="text" name="diaChi" class="form-control">
+				</div>
+			</div>
+			<div class="contract_staff">
+				<div class="contract__select-input">
+					<h4>Email:</h4>
+					<input type="text" name="email" class="form-control">
+				</div>
+				<div class="contract__select-input">
+					<h4>Vị trí:</h4>
+					<input type="text" name="viTri" value="nhan vien" readonly="readonly" class="form-control">
+				</div>
+			</div>
+			<div class="contract__select-input">
+				<h4>Phòng ban:</h4>
+				<select name="indexPb" id="" class="form-control">
+					<th:block th:unless="${#lists.isEmpty(session.listPb)}">
+						<option th:each="pb, iterStat : ${session.listPb}"
+							th:text="${pb.tenPb}" th:value="${iterStat.index}"></option>
+					</th:block>
+				</select>
+			</div>
+			<div class="contract__select-input">
+				<h3>Lương cơ bản:</h3>
+				<select name="indexLuong" id="" class="form-control">
+					<th:block th:unless="${#lists.isEmpty(session.listLuong)}">
+						<option th:each="luong, iterStat : ${session.listLuong}"
+							th:text="${luong.mucLuong}" th:value="${iterStat.index}"></option>
+					</th:block>
+				</select>
+			</div>
+			<div class="contract__select-allowance">
+				<h3>Phụ cấp:</h3>
+				<table
+					class="table table-bordered table-hover allowance__table-list table-list">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col" class="text-center">#</th>
+							<th scope="col" class="text-center">Tên</th>
+							<th scope="col" class="text-center">Mức phụ cấp</th>
+							<th scope="col" class="text-center">Chọn</th>
+						</tr>
+					</thead>
+					<tbody>
+						<th:block th:unless="${#lists.isEmpty(session.listPc)}">
+							<tr th:each="pc, iterStat : ${session.listPc}">
+								<th scope="row" class="text-center" th:text="${pc.id}"></th>
+								<td th:text="${pc.tenPc}"></td>
+								<td th:text="${pc.mucPc}"></td>
+								<td class="text-center"><input type="checkbox"
+									name="indexPc" th:value="${iterStat.index}"></td>
+							</tr>
+						</th:block>
+					</tbody>
+				</table>
+			</div>
+			<div class="contract__enter-info">
+				<h3>Thời hạn (năm):</h3>
+				<input type="text" name="thoiHan" class="form-control">
+			</div>
+			<div class="contract__enter-info">
+				<h3>Ngày ký:</h3>
+				<input type="date" name="ngayKy" class="form-control">
+			</div>
+			<button type="submit" class="btn btn-primary contract__btn-create">Tạo
+				hợp đồng</button>
+		</form>
+	</div>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

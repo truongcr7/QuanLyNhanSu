@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="nav" th:fragment = "home">
+    	<link rel="stylesheet" href="/css/navbar.css">
+        <ul class="nav-list">
+            <li class="nav-list__item active-background">
+                <a href="/manager-home" class="nav-list__item-link active-text-color">
+                    <i class="fas fa-home"></i><br>
+                    <span>Trang chủ</span>
+                </a>
+            </li>
+            <li class="nav-list__item">
+                <a href="/manage-department" class="nav-list__item-link">
+                    <i class="far fa-building"></i><br>
+                    <span>Quản lý phòng ban</span>
+                </a>
+            </li>
+            <li class="nav-list__item">
+                <a href="/manage-staff" class="nav-list__item-link">
+                    <i class="fas fa-users"></i><br>
+                    <span>Quản lý nhân viên</span>
+                </a>
+            </li>
+            <li class="nav-list__item">
+                <a href="/manage-training" class="nav-list__item-link">
+                    <i class="fas fa-chalkboard-teacher"></i><br>
+                    <span>Quản lý đào tạo</span>
+                </a>
+            </li>
+            <li class="nav-list__item">
+                <a href="/manage-contract" class="nav-list__item-link">
+                    <i class="fas fa-file-contract"></i><br>
+                    <span>Quản lý hợp đồng</span>
+                </a>
+            </li>
+        </ul>
+        <h3>Xin chào <span th:text="${session.quanly.hoTen}"></span></h3>
+    </div>
+    
+    <div class="nav" th:fragment = "department">
+    	<link rel="stylesheet" href="/css/navbar.css">
+        <ul class="nav-list">
+            <li class="nav-list__item">
+                <a href="/manager-home" class="nav-list__item-link">
+                    <i class="fas fa-home"></i><br>
+                    <span>Trang chủ</span>
+                </a>
+            </li>
+            <li class="nav-list__item active-background">
+                <a href="/manage-department" class="nav-list__item-link active-text-color">
+                    <i class="far fa-building"></i><br>
+                    <span>Quản lý phòng ban</span>
+                </a>
+            </li>
+            <li class="nav-list__item">
+                <a href="/manage-staff" class="nav-list__item-link">
+                    <i class="fas fa-users"></i><br>
+                    <span>Quản lý nhân viên</span>
+                </a>
+            </li>
+            <li class="nav-list__item">
+                <a href="/manage-training" class="nav-list__item-link">
+                    <i class="fas fa-chalkboard-teacher"></i><br>
+                    <span>Quản lý đào tạo</span>
+                </a>
+            </li>
+            <li class="nav-list__item">
+                <a href="/manage-contract" class="nav-list__item-link">
+                    <i class="fas fa-file-contract"></i><br>
+                    <span>Quản lý hợp đồng</span>
+                </a>
+            </li>
+        </ul>
+        <h3>Xin chào <span th:text="${session.quanly.hoTen}"></span></h3>
+    </div>
+    
+    <div class="nav" th:fragment = "staff">
+    	<link rel="stylesheet" href="/css/navbar.css">
+        <ul class="nav-list">
+            <li class="nav-list__item">
+                <a href="/manager-home" class="nav-list__item-link">
+                    <i class="fas fa-home"></i><br>
+                    <span>Trang chủ</span>
+                </a>
+            </li>
+            <li class="nav-list__item">
+                <a href="/manage-department" class="nav-list__item-link">
+                    <i class="far fa-building"></i><br>
+                    <span>Quản lý phòng ban</span>
+                </a>
+            </li>
+            <li class="nav-list__item active-background">
+                <a href="/manage-staff" class="nav-list__item-link active-text-color">
+                    <i class="fas fa-users"></i><br>
+                    <span>Quản lý nhân viên</span>
+                </a>
+            </li>
+            <li class="nav-list__item">
+                <a href="/manage-training" class="nav-list__item-link">
+                    <i class="fas fa-chalkboard-teacher"></i><br>
+                    <span>Quản lý đào tạo</span>
+                </a>
+            </li>
+            <li class="nav-list__item">
+                <a href="/manage-contract" class="nav-list__item-link">
+                    <i class="fas fa-file-contract"></i><br>
+                    <span>Quản lý hợp đồng</span>
+                </a>
+            </li>
+        </ul>
+        <h3>Xin chào <span th:text="${session.quanly.hoTen}"></span></h3>
+    </div>
+    
+    <div class="nav" th:fragment = "contract">
+    	<link rel="stylesheet" href="/css/navbar.css">
+        <ul class="nav-list">
+            <li class="nav-list__item">
+                <a href="/manager-home" class="nav-list__item-link">
+                    <i class="fas fa-home"></i><br>
+                    <span>Trang chủ</span>
+                </a>
+            </li>
+            <li class="nav-list__item">
+                <a href="/manage-department" class="nav-list__item-link">
+                    <i class="far fa-building"></i><br>
+                    <span>Quản lý phòng ban</span>
+                </a>
+            </li>
+            <li class="nav-list__item">
+                <a href="/manage-staff" class="nav-list__item-link">
+                    <i class="fas fa-users"></i><br>
+                    <span>Quản lý nhân viên</span>
+                </a>
+            </li>
+            <li class="nav-list__item">
+                <a href="/manage-training" class="nav-list__item-link">
+                    <i class="fas fa-chalkboard-teacher"></i><br>
+                    <span>Quản lý đào tạo</span>
+                </a>
+            </li>
+            <li class="nav-list__item active-background">
+                <a href="/manage-contract" class="nav-list__item-link active-text-color">
+                    <i class="fas fa-file-contract"></i><br>
+                    <span>Quản lý hợp đồng</span>
+                </a>
+            </li>
+        </ul>
+        <h3>Xin chào <span th:text="${session.quanly.hoTen}"></span></h3>
+    </div>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

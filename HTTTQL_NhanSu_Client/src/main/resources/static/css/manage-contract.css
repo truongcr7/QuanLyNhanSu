@@ -1,0 +1,52 @@
+*{
+    box-sizing: inherit;
+}
+html{
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+
+/* Quan ly hop dong */
+
+#contract-wrap{
+    width: 100%;
+    height: 100vh;
+    padding: 50px 100px;
+}
+
+.table-list{
+    font-size: 1.6rem;
+    background-color: white;
+    margin: 20px 0; 
+}
+
+#contract-wrap h3{
+    text-align: left;
+    margin: 0;
+    color: red;
+}
+
+.contract_staff{
+    display: flex;
+    width: 800px;
+    justify-content: space-between;
+}
+.contract__select-input, .contract__enter-info{
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 320px;
+}
+.contract__select-input .form-control, .contract__enter-info .form-control{
+    width: 60%;
+    font-size: 1.6rem;
+}
+.contract__btn-create{
+    display: block;
+    margin: auto;
+    font-size: 1.6rem;
+}
