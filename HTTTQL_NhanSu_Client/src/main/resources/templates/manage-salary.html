@@ -34,13 +34,13 @@
             </thead>
             <tbody>
             	<th:block th:unless="${#lists.isEmpty(session.listLuong)}">
-	                <tr th:each="luong : ${session.listLuong}">
+	                <tr th:each="luong, iStat : ${session.listLuong}">
 	                    <th scope="row" class="text-center" th:text="*{luong.id}"></th>
 	                    <td th:text="${luong.tenLuong}"></td>
 	                    <td th:text="${luong.mucLuong}"></td>
 	                    <td class="text-center">
-	                        <a href=""><i class="fas fa-pen"></i></a>
-	                        <a href=""><i class="fas fa-trash-alt"></i></a>
+	                        <a th:href="@{/manage-salary/edit/indexLuong={indexLuong}(indexLuong=${iStat.index})}"><i class="fas fa-pen" style="color: green"></i></a>
+	                        <a href=""><i class="fas fa-trash-alt" style="color: red"></i></a>
 	                    </td>
 	                </tr>
                 </th:block>

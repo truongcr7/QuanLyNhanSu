@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Chỉnh sửa nhân viên</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/edit-staff.css">
+</head>
+  <body>
+  	<div th:replace="navbar :: staff"></div>
+    <form th:action="@{/manage-staff/save/nameTv={nameTv}(nameTv=${session.nameTv})}" class="staff-edit" th:object="${tv}" method="post">
+    	<input type="hidden" th:field="*{id}">
+    	<input type="hidden" th:field="*{username}">
+    	<input type="hidden" th:field="*{password}">
+    	<div class="staff-edit__side">
+	      <div class="staff-edit__side1">
+	        <label for="">Họ tên:</label>
+	        <input type="text" id="" class="form-control" th:field="*{hoTen}">
+	        <br>
+	        <label for="">Ngày sinh:</label>
+	        <input type="date" id="" class="form-control" th:field="*{ngaySinh}">
+	        <br>
+	        <label for="">Giới tính:</label>
+	        <select name="" id="" class="form-control" th:field="*{gioiTinh}">
+	          <option value="Nam">Nam</option>
+	          <option value="Nữ">Nữ</option>
+	        </select>
+	        <br>
+	      </div>
+	      <div class="staff-edit__side2">
+	      	<label for="">Địa chỉ:</label>
+	        <input type="text" id="" class="form-control" th:field="*{diaChi}">
+	        <br>
+	        <label for="">Email:</label>
+	        <input type="text" id="" class="form-control" th:field="*{email}">
+	        <br>
+	        <label for="">Vị trí:</label>
+	        <input type="text" id="" class="form-control" th:field="*{viTri}">
+	        <br>
+	      </div>
+	      <input type="hidden" th:field="*{pb.id}">
+    	</div>
+    	<button type="submit" class="btn btn-primary btn-submit">Save</button>
+    </form>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -19,5 +19,5 @@ public class PhuCap {
 	
 	private String tenPc;
 	
-	private float mucPc;
+	private int mucPc;
 }

@@ -16,7 +16,7 @@
 <body>
   <div class="start-page">
     <div class="start-page__overlay"></div>
-    <form th:action="@{/checkLogin}" method="post" th:object="${tv}"  class="start-page__form-login">
+    <form th:action="@{/check-login}" method="post" th:object="${tv}"  class="start-page__form-login">
       <h3>LOGIN</h3>
       <label for="username">USERNAME</label><br>
       <input type="text" name="username" id="username" th:field="*{username}" class="form-control" placeholder="Enter your username"

@@ -38,7 +38,7 @@
                 <tr>
                     <th scope="row" class="text-center" th:text="${hd.nv.id}"></th>
                     <td th:text="${hd.nv.hoTen}"></td>
-                    <td th:text="${hd.nv.ngaySinh}"></td>
+                    <td th:text="${#dates.format(hd.nv.ngaySinh, 'yyyy-MM-dd')}"></td>
                     <td th:text="${hd.nv.gioiTinh}"></td>
                     <td th:text="${hd.nv.diaChi}"></td>
                     <td th:text="${hd.nv.email}"></td>
@@ -75,7 +75,7 @@
         </div>
         <div class="contract__enter-info">
             <h4>Ngày ký:</h4>
-            <input type="text" name="" id="" th:value="${hd.ngayKy}" class="form-control" disabled>
+            <input type="text" name="" id="" th:value="${#dates.format(hd.ngayKy, 'yyyy-MM-dd')}" class="form-control" disabled>
         </div>
     </div>
     <!-- Optional JavaScript -->

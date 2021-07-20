@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import qlns.PhongBan;
 import qlns.ThanhVien;
 import qlns.data.PhongBanRepo;
+import qlns.data.ThanhVienRepo;
 
 @RestController
 @RequestMapping(path = "/manage-department")
@@ -48,4 +49,5 @@ public class PhongBanController{
 	public void deletePb(@PathVariable("id") Long id) {
 		pbRepo.deleteById(id);
 	}
+	
 }

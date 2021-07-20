@@ -19,5 +19,5 @@ public class Luong {
 	
 	private String tenLuong;
 	
-	private float mucLuong;
+	private int mucLuong;
 }

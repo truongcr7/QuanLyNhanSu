@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,15 +33,15 @@ public class PhieuLuong {
 	
 	private float tongTien;
 	
-	@OneToMany(mappedBy = "phieuLuong")
-	private List<NgayCong> listNgayCong;
-	
 	@ManyToOne(targetEntity = ThanhVien.class)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private ThanhVien nv;
 	
 	@ManyToOne(targetEntity = HopDong.class)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private HopDong hopDong;
 	
 	@ManyToOne(targetEntity = ThanhVien.class)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private ThanhVien keToan;
 }

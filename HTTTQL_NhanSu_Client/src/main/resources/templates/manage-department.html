@@ -37,10 +37,10 @@
 	               <tr th:each = "pb, iStat : ${session.listPb}">
 	                   <th scope="row" class="text-center" th:text="${pb.id}"></th>
 	                   <td th:text="${pb.tenPb}"></td>
-	                   <td class="text-center"><a th:href="@{/manage-department/{idPb}/view-staff(idPb=${pb.id})}">Xem</a></td>
+	                   <td class="text-center"><a th:href="@{/manage-department/idPb={idPb}/indexPb={indexPb}/view-staff(idPb=${pb.id}, indexPb=${iStat.index})}">Xem</a></td>
 	                   <td class="text-center">
-	                       <a th:href="@{/manage-department/edit/{indexPb}(indexPb=${iStat.index})}"><i class="fas fa-pen"></i></a>
-	                       <a th:href="@{/manage-department/delete/{indexPb}(indexPb=${iStat.index})}"><i class="fas fa-trash-alt"></i></a>
+	                       <a th:href="@{/manage-department/edit/indexPb={indexPb}(indexPb=${iStat.index})}"><i class="fas fa-pen" style="color: green"></i></a>
+	                       <a th:href="@{/manage-department/delete/indexPb={indexPb}(indexPb=${iStat.index})}"><i class="fas fa-trash-alt" style="color: red"></i></a>
 	                   </td>
 	               </tr>
                 </th:block>

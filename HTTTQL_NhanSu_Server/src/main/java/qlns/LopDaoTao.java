@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,9 +29,7 @@ public class LopDaoTao {
 	private String moTa;
 	
 	@ManyToOne(targetEntity = ThanhVien.class)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private ThanhVien ql;
-	
-	@OneToMany(mappedBy = "lopDaoTao")
-	private List<LopDaoTao_NhanVien> listLdtNv;
 	
 }

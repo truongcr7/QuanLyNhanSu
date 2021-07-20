@@ -52,3 +52,7 @@ html{
 .active-background{
     background-color: black;
 }
+h3:hover .log-out{
+    text-decoration: none;
+    color: red;
+}

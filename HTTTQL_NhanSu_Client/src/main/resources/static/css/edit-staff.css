@@ -1,0 +1,36 @@
+*{
+    box-sizing: inherit;
+}
+html{
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+.staff-edit{
+    width: 500px;
+    height: 400px;
+    border: 1px solid rgb(199, 197, 197);
+    border-radius: 2px;
+    padding: 10px 20px;
+    margin: 100px auto;
+}
+.staff-edit__side{
+    width: 100%;
+    height: 85%;
+    display: flex;
+    justify-content: space-between;
+}
+.staff-edit label{
+    font-size: 1.6rem;
+}
+.staff-edit input, .staff-edit select{
+    font-size: 1.6rem;
+}
+
+.staff-edit .btn-submit{
+    display: block;
+    margin: auto;
+    width: 100%;
+    font-size: 1.6rem;
+}

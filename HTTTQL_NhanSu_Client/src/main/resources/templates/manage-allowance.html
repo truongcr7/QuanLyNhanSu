@@ -34,13 +34,13 @@
             </thead>
             <tbody>
             	<th:block th:unless = "${#lists.isEmpty(session.listPc)}">
-	                <tr th:each="pc : ${session.listPc}">
+	                <tr th:each="pc, iStat : ${session.listPc}">
 	                    <th scope="row" class="text-center" th:text="${pc.id}"></th>
 	                    <td th:text="${pc.tenPc}"></td>
 	                    <td th:text="${pc.mucPc}"></td>
 	                    <td class="text-center">
-	                        <a href=""><i class="fas fa-pen"></i></a>
-	                        <a href=""><i class="fas fa-trash-alt"></i></a>
+	                        <a th:href="@{/manage-allowance/edit/indexPc={indexPc}(indexPc=${iStat.index})}"><i class="fas fa-pen" style="color: green"></i></a>
+	                        <a href=""><i class="fas fa-trash-alt" style="color: red"></i></a>
 	                    </td>
 	                </tr>
                 </th:block>

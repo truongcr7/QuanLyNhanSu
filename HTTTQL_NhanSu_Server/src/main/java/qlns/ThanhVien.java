@@ -11,10 +11,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -38,6 +43,7 @@ public class ThanhVien {
 	private String hoTen;
 	
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date ngaySinh;
 	
 	private String gioiTinh;
@@ -48,6 +54,7 @@ public class ThanhVien {
 	
 	private String viTri;
 	
-	@ManyToOne(targetEntity = PhongBan.class)
+	@ManyToOne
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private PhongBan pb;
 }

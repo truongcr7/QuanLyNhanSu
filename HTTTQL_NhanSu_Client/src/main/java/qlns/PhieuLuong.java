@@ -30,8 +30,6 @@ public class PhieuLuong {
 	
 	private float tongTien;
 	
-	@OneToMany(mappedBy = "phieuLuong")
-	private List<NgayCong> listNgayCong;
 	
 	@ManyToOne(targetEntity = ThanhVien.class)
 	private ThanhVien nv;

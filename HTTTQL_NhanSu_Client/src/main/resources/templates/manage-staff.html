@@ -23,9 +23,9 @@
 <body>
 	<div th:replace="navbar :: staff"></div>
 	<div class="wrap" id="employee-wrap">
-		<form th:action="@{/searchStaff}" class="employee__form-search"
+		<form th:action="@{/manage-staff/search}" class="employee__form-search"
 			method="get">
-			<input type="text" name="tenNv" class="form-control"
+			<input type="text" name="name" class="form-control"
 				placeholder="Tên nhân viên">
 			<button type="submit" class="btn btn-primary btn-search">
 				<i class="fas fa-search"></i>
@@ -44,19 +44,24 @@
 					<th scope="col" class="text-center">Email</th>
 					<th scope="col" class="text-center">Vị trí</th>
 					<th scope="col" class="text-center">Phòng ban</th>
+					<th scope="col" class="text-center">Action</th>
 				</tr>
 			</thead>
 			<tbody>
 				<th:block th:unless="${#lists.isEmpty(session.listTv)}">
-					<tr th:each="tv, iterStat : ${session.listTv}">
+					<tr th:each="tv, iStat : ${session.listTv}">
 						<th scope="row" class="text-center" th:text="${tv.id}"></th>
 						<td th:text="${tv.hoTen}"></td>
-						<td th:text="${tv.ngaySinh}"></td>
+						<td th:text="${#dates.format(tv.ngaySinh, 'yyyy-MM-dd')}"></td>
 						<td th:text="${tv.gioiTinh}"></td>
 						<td th:text="${tv.diaChi}"></td>
 						<td th:text="${tv.email}"></td>
 						<td th:text="${tv.viTri}"></td>
 						<td th:text="${tv.pb.tenPb}"></td>
+						<td class="text-center">
+	                       <a th:href="@{/manage-staff/edit/nameTv={nameTv}/indexTv={indexTv}(nameTv=${session.nameTv}, indexTv=${iStat.index})}"><i class="fas fa-pen" style="color: green"></i></a>
+	                       <a th:href="@{/manage-staff/delete/nameTv={nameTv}/indexTv={indexTv}(nameTv=${session.nameTv}, indexTv=${iStat.index})}"><i class="fas fa-trash-alt" style="color: red"></i></a>
+	                   </td>
 					</tr>
 				</th:block>
 			</tbody>

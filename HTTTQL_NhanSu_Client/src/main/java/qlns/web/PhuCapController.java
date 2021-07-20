@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
@@ -34,8 +35,16 @@ public class PhuCapController {
 	}
 	
 	@PostMapping("/add")
-	public String addDepart(PhuCap pc) {
+	public String addAllowance(PhuCap pc) {
 		rest.postForObject("http://localhost:8080/manage-allowance/add", pc, PhuCap.class);
 		return "redirect:/manage-allowance";
+	}
+	
+	@GetMapping("/edit/indexPc={indexPc}")
+	public String showEditAllowance(@PathVariable("indexPc") int indexPc, HttpSession session, Model model) {
+		List<PhuCap> listPc = (List<PhuCap>) session.getAttribute("listPc");
+		PhuCap pc = listPc.get(indexPc);
+		model.addAttribute("pc", pc);
+		return "edit-allowance";
 	}
 }

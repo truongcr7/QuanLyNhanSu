@@ -18,7 +18,7 @@
 <body>
 	<div th:replace="navbar :: department"></div>
     <div class="wrap" id="employee-wrap">
-        <h3>Danh sách nhân viên</h3>
+        <h3>Danh sách nhân viên: <span th:text="${session.tenPb}"></span></h3>
         <table class="table table-bordered table-hover employee__table-list table-list">
             <thead class="thead-dark">
                 <tr>
@@ -34,17 +34,17 @@
             </thead>
             <tbody>
             	<th:block th:unless="${#lists.isEmpty(session.listTvPb)}">
-	                <tr th:each="tv : ${session.listTvPb}">
+	                <tr th:each="tv, iStat : ${session.listTvPb}">
 	                    <th scope="row" class="text-center" th:text="${tv.id}"></th>
 	                    <td th:text="${tv.hoTen}"></td>
-	                    <td th:text="${tv.ngaySinh}"></td>
+	                    <td th:text="${#dates.format(tv.ngaySinh, 'yyyy-MM-dd')}"></td>
 	                    <td th:text="${tv.gioiTinh}"></td>
 	                    <td th:text="${tv.diaChi}"></td>
 	                    <td th:text="${tv.email}"></td>
 	                    <td th:text="${tv.viTri}"></td>
 	                    <td class="text-center">
-	                        <a href=""><i class="fas fa-pen"></i></a>
-	                        <a href=""><i class="fas fa-trash-alt"></i></a>
+	                        <a th:href="@{/manage-department/staff/edit/idPb={idPb}/indexTv={indexTv}(idPb=${session.idPb}, indexTv=${iStat.index})}"><i class="fas fa-pen" style="color: green"></i></a>
+	                        <a th:href="@{/manage-department/staff/delete/idPb={idPb}/indexTv={indexTv}(idPb=${session.idPb}, indexTv=${iStat.index})}"><i class="fas fa-trash-alt" style="color: red"></i></a>
 	                    </td>
 	                </tr>
                 </th:block>

@@ -10,6 +10,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,8 +35,10 @@ public class NgayCong {
 	private Date gioVe;
 	
 	@ManyToOne(targetEntity = ThanhVien.class)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private ThanhVien nv;
 	
 	@ManyToOne(targetEntity = PhieuLuong.class)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private PhieuLuong phieuLuong;
 }

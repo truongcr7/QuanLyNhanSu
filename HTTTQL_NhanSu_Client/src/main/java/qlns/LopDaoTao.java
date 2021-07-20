@@ -28,7 +28,4 @@ public class LopDaoTao {
 	@ManyToOne(targetEntity = ThanhVien.class)
 	private ThanhVien ql;
 	
-	@OneToMany(mappedBy = "lopDaoTao")
-	private List<LopDaoTao_NhanVien> listLdtNv;
-	
 }

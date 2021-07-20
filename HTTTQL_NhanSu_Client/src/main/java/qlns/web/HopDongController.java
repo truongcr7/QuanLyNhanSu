@@ -50,7 +50,7 @@ public class HopDongController {
 			@RequestParam("viTri") String viTri, @RequestParam("indexPb") int indexPb,
 			@RequestParam("indexLuong") int indexLuong, @RequestParam("indexPc") List<Integer> listIndexPc,
 			@RequestParam("thoiHan") float thoiHan, @RequestParam("ngayKy") String ngayKy,
-			HttpSession session, Model model) throws ParseException {	
+			HttpSession session, Model model) throws ParseException {
 		
 		ThanhVien tv = new ThanhVien();
 		tv.setHoTen(hoTen);
@@ -61,7 +61,7 @@ public class HopDongController {
 		tv.setViTri(viTri);
 		List<PhongBan> listPb = (List<PhongBan>) session.getAttribute("listPb");
 		tv.setPb(listPb.get(indexPb));
-		tv = rest.postForObject("http://localhost:8080/addMember", tv, ThanhVien.class);
+		tv = rest.postForObject("http://localhost:8080/manage-staff/save", tv, ThanhVien.class);
 		
 		List<Luong> listLuong = (List<Luong>) session.getAttribute("listLuong");
 		Luong luong = listLuong.get(indexLuong);

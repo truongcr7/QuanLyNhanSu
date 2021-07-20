@@ -8,9 +8,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.server.EntityLinks;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,19 +34,19 @@ public class ThanhVienController {
 		this.tvRepo = tvRepo;
 	}
 	
-	@PostMapping(path = "/checkLogin", consumes = "application/json")
+	@PostMapping(path = "/check-login", consumes = "application/json")
 	@ResponseStatus(HttpStatus.CREATED)
 	public ThanhVien checkLogin(@RequestBody ThanhVien tv) {
 		tv = tvRepo.checkLogin(tv.getUsername(), tv.getPassword());
 		return tv;
 	}
 	
-	@GetMapping("/searchStaff/{tenNv}")
-	public Iterable<ThanhVien> searchStaffByName(@PathVariable("tenNv") String tenNv){
-		return tvRepo.searchStaff(tenNv);
+	@GetMapping("/manage-staff/search/{name}")
+	public Iterable<ThanhVien> searchStaffByName(@PathVariable("name") String name){
+		return tvRepo.searchStaff(name);
 	}
 	
-	@PostMapping(path = "/addMember", consumes = "application/json")
+	@PostMapping(path = "/manage-staff/save", consumes = "application/json")
 	@ResponseStatus(HttpStatus.CREATED)
 	public ThanhVien addMember(@RequestBody ThanhVien tv) {
 		return tvRepo.save(tv);
@@ -53,5 +55,10 @@ public class ThanhVienController {
 	@GetMapping("/manage-department/{idPb}/view-staff")
 	public List<ThanhVien> viewStaff(@PathVariable("idPb") Long idPb){
 		return tvRepo.searchStaffByPb(idPb);
+	}
+	
+	@DeleteMapping("/manage-staff/delete/{id}")
+	public void deleteTv(@PathVariable("id") Long id) {
+		tvRepo.deleteById(id);
 	}
 }
